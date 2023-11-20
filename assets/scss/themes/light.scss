@@ -1,0 +1,20 @@
+@mixin light-theme {
+  $primary: $primary;
+  $secondary: $secondary;
+  $body: #f5f5f5;
+  $background-color: $body;
+
+  body {
+    background-color: $body;
+    color: $secondary;
+  }
+
+  .btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+    &:hover {
+      background-color: darken($primary, 10%);
+      border-color: darken($primary, 10%);
+    }
+  }
+}

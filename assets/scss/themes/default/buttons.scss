@@ -1,0 +1,96 @@
+//https://getbootstrap.com/docs/5.3/customize/color/#all-colors
+[data-bs-theme="default"] {
+  //background color
+  --bs-body-bg: #{$white};
+  --bs-body-bg-rgb: #{to-rgb($white)};
+  //foreground color
+  --bs-body-color: #212529;
+  --bs-body-color-rgb: #{to-rgb(#212529)};
+  //used for lighter text
+  //bg option for dividers and disabled states.
+  --bs-secondary-color: #{tint-color(#212529, 7%)};
+  --bs-secondary-color-rgb: #{to-rgb(tint-color(#212529, 7%))};
+  //borders, dividers, and rules
+  //--bs-border-color-translucent to blend
+  //uses rgba value
+  --bs-border-color: #dee2e6;
+  --bs-border-color-rgb: #{to-rgb(#dee2e6)};
+  --bs-primary: #{$indigo-700};
+  --bs-primary-rgb: #{$indigo-700};
+  /**
+  --bs-secondary-bg
+  --bs-secondary-bg-rgb
+  --bs-tertiary-color
+  --bs-tertiary-color-rgb
+  --bs-tertiary-bg
+  --bs-tertiary-bg-rgb
+  --bs-emphasis-color
+  --bs-emphasis-color-rgb
+  --bs-primary-bg-subtle
+  --bs-primary-border-subtle
+  --bs-primary-text-emphasis
+  --bs-success
+  --bs-success-rgb
+  --bs-success-bg-subtle
+  --bs-success-border-subtle
+  --bs-success-text-emphasis
+  --bs-danger
+  --bs-danger-rgb
+  --bs-danger-bg-subtle
+  --bs-danger-border-subtle
+  --bs-danger-text-emphasis
+  --bs-warning
+  --bs-warning-rgb
+  --bs-warning-bg-subtle
+  --bs-warning-border-subtle
+  --bs-warning-text-emphasis
+  --bs-info
+  --bs-info-rgb
+  --bs-info-bg-subtle
+  --bs-info-border-subtle
+  --bs-info-text-emphasis
+  --bs-light
+  --bs-light-rgb
+  --bs-light-bg-subtle
+  --bs-light-border-subtle
+  --bs-light-text-emphasis
+  --bs-dark
+  --bs-dark-rgb
+  --bs-dark-bg-subtle
+  --bs-dark-border-subtle
+  --bs-dark-text-emphasis
+  */
+
+  .btn-primary {
+    --bs-btn-bg: #{tint-color($indigo-700, 10%)};
+    --bs-btn-border-color: #{$indigo-700};
+    --bs-btn-hover-bg: #{darken($indigo-700, 3%)};
+    --bs-btn-hover-border-color: #{rgba($white, 0.25)};
+    --bs-btn-active-bg: #{darken($indigo-700, 7%)};
+    --bs-btn-active-border-color: #{$indigo-700};
+    --bs-btn-focus-border-color: #{$indigo-700};
+    //--bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.2) ;
+  }
+  .btn-outline-primary {
+    --bs-btn-bg: #{$gray-100};
+    --bs-btn-border-color: #{tint-color($indigo-700, 10%)};
+    --bs-btn-hover-bg: #{darken($indigo-700, 3%)};
+    --bs-btn-hover-border-color: #{rgba($white, 0.25)};
+    --bs-btn-active-bg: #{darken($indigo-700, 7%)};
+    --bs-btn-color: #{tint-color($indigo-700, 10%)};
+    --bs-btn-active-border-color: #{$indigo-700};
+    --bs-btn-focus-border-color: #{$indigo-700};
+    //--bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.2) ;
+  }
+  .btn-secondary {
+    --bs-btn-color: #{$gray-100};
+    --bs-btn-bg: #{$gray-400};
+    --bs-btn-border-color: #{rgba($white, 0.25)};
+    --bs-btn-hover-bg: #{darken(mix($gray-600, $blue-400, 0.5%), 5%)};
+    --bs-btn-hover-border-color: #{rgba($white, 0.25)};
+    --bs-btn-active-bg: #{darken(mix($gray-600, $blue-400, 0.5%), 10%)};
+    --bs-btn-active-border-color: #{rgba($white, 0.5)};
+    --bs-btn-focus-border-color: #{rgba($white, 0.5)};
+    // --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.2);
+  }
+}

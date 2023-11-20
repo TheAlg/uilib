@@ -1,0 +1,80 @@
+{
+  "SIZE": {
+    "SMALL": "sm",
+    "MEDIUM": "md",
+    "LARGE": "lg"
+  },
+  "DIRECTION": {
+    "HORIZONTAL": "horizontal",
+    "VERTICAL": "vertical"
+  },
+  "VARIANT": {
+    "NONE": "",
+    "PRIMARY": "primary",
+    "SECONDARY": "secondary",
+    "SUCCESS": "success",
+    "DANGER": "danger",
+    "WARNING": "warning",
+    "INFO": "info",
+    "LIGHT": "light",
+    "DARK": "dark",
+    "LINK": "link"
+  },
+  "POSITION": {
+    "BUTTON": {
+      "NONE": "",
+      "FULL": "d-grid gap-2",
+      "LEFT": "d-grid gap-2 d-md-block",
+      "CENTER": "d-grid gap-2 col-6 mx-auto",
+      "RIGHT": "d-grid gap-2 d-md-flex justify-content-md-end"
+    },
+    "IMG": {
+      "NONE": "",
+      "TOP": "top",
+      "BOTTOM": "bottom",
+      "OVERLAY": "overlay"
+    },
+    "ICON": {
+      "BEFORE": "before",
+      "AFTER": "after"
+    }
+  },
+  "TYPE": {
+    "BUTTON": {
+      "SUBMIT": "submit",
+      "BUTTON": "button",
+      "RESET": "reset"
+    },
+    "INPUT": {
+      "BUTTON": "button",
+      "CHECKBOX": "checkbox",
+      "COLOR": "color",
+      "DATE": "date",
+      "DATETIME": "datetime-local",
+      "EMAIL": "email",
+      "FILE": "file",
+      "HIDDEN": "hidden",
+      "IMAGE": "image",
+      "MONTH": "month",
+      "NUMBER": "number",
+      "PASSWORD": "password",
+      "RADIO": "radio",
+      "RANGE": "range",
+      "RESET": "reset",
+      "SEARCH": "search",
+      "SUBMIT": "submit",
+      "TEL": "tel",
+      "TEXT": "text",
+      "TIME": "time",
+      "URL": "url",
+      "WEEK": "week"
+    }
+  },
+  "ALIGN": {
+    "CARD": {
+      "LEFT": "text-start",
+      "CENTER": "text-center",
+      "RIGHT": "text-end"
+    }
+  }
+}
