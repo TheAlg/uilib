@@ -1,0 +1,39 @@
+<!-- test.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Component Test</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Use your Vue components here -->
+        <my-component></my-component>
+    </div>
+
+    <!-- Load Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- Load Vite development server script -->
+    <script type="module" src="http://localhost:3000/@vite/client"></script>
+
+    <!-- Import and register your Vue components -->
+    <script type="module">
+        // Import your components
+        import { NativeButton } from './main.ts';
+
+        // Register components globally
+        Vue.component('my-component', NativeButton);
+
+        // Create a new Vue instance
+        new Vue({
+            el: '#app',
+            template: '<my-component></my-component>',
+        });
+    </script>
+</body>
+
+</html>

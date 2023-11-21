@@ -38,7 +38,9 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from "vue";
 import wrapper from "wrappers/c-button.vue";
+import {generateId} from "../../utils/functions"
 export interface Props {
   label?: string;
   position?: string;
