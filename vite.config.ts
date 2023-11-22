@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { resolve } from 'path'
 import { defineConfig, searchForWorkspaceRoot } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import bus from './plugins/eventBus'
 
 // https://vitejs.dev/config/
 export default defineConfig({
