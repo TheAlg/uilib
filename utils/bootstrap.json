@@ -2,7 +2,9 @@
   "SIZE": {
     "SMALL": "sm",
     "MEDIUM": "md",
-    "LARGE": "lg"
+    "LARGE": "lg",
+    "XLARGE": "xl",
+    "XXLARGE": "xxl"
   },
   "DIRECTION": {
     "HORIZONTAL": "horizontal",

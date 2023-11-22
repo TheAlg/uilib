@@ -1,13 +1,7 @@
 <template lang="">
-  <div :class="computedPosition">
+  <wrapper :position="computedPosition">
     <button
-      :class="[
-        'btn',
-        computedSize,
-        computedVariant,
-        innerClass,
-        { disabled: disabled },
-      ]"
+      :class="['btn', computedSize, computedVariant, innerClass, { disabled: disabled }]"
       :type="computedType"
       :style="iconObj?.padding"
       :value="value"
@@ -34,85 +28,83 @@
         {{ label }}
       </template>
     </button>
-  </div>
+  </wrapper>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import wrapper from "wrappers/c-button.vue";
-import {generateId} from "../../utils/functions"
+import { computed, onBeforeMount, ref } from 'vue'
+import wrapper from 'wrappers/c-button.vue'
+import { generateId } from '../../utils/functions'
+import { size, variant, icon, boot, getOptions } from '../../utils/bootstrap'
 export interface Props {
-  label?: string;
-  position?: string;
-  size?: string;
-  type?: string;
-  value?: string;
-  uuid?: string;
-  variant?: string;
-  outline?: boolean;
-  disabled?: boolean;
-  innerClass?: string;
-  icon?: Object | string;
+  label?: string
+  position?: string
+  size?: string
+  type?: string
+  value?: string
+  uuid?: string
+  variant?: string
+  outline?: boolean
+  disabled?: boolean
+  innerClass?: string
+  icon?: Object | string
 
-  playground?: boolean;
+  playground?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  label: "",
-  position: "none",
-  size: "medium",
-  type: "button",
+  label: '',
+  position: 'none',
+  size: 'medium',
+  type: 'button',
   value: undefined,
-  variant: "none",
+  variant: 'none',
   outline: false,
   disabled: false,
   innerClass: undefined,
   icon: undefined,
-  playground: false,
-});
+  playground: false
+})
 
 const emit = defineEmits<{
-  (e: "init", value: object): void;
-  (e: "click", value: any): void;
-}>();
+  (e: 'init', value: object): void
+  (e: 'click', value: any): void
+}>()
 
-const id = props.uuid ? ref(props.uuid) : ref(generateId());
+const id = props.uuid ? ref(props.uuid) : ref(generateId())
 
 const iconObj = computed(() => {
-  if (props.playground) {
-    console.log(props.icon, bootstrapIcon(props.icon));
-  }
-  return bootstrapIcon(props.icon);
-});
+  return icon(props.icon)
+})
 
 const computedPosition = computed(() => {
-  return getBootValue(`position.button.${props.position}`);
-});
+  return boot(`position.button.${props.position}`)
+})
 
 const computedSize = computed(() => {
-  return bootstrapSize("btn", props.size);
-});
+  return size('btn', props.size)
+})
 
 const computedVariant = computed(() => {
-  return bootstrapButtonVariant("btn", props.variant, props.outline);
-});
+  return variant('btn', props.variant, props.outline)
+})
 
 const computedType = computed(() => {
-  return getBootValue(`type.button.${props.type}`);
-});
+  return boot(`type.button.${props.type}`)
+})
 
 onBeforeMount(() => {
   if (props.playground) {
-    emit("init", {
+    emit('init', {
       size,
-      icon_position: Object.values(position_icon),
-      position: Object.values(position_button),
-      type: Object.values(type_button),
-      variant: Object.values(variant),
-    });
-    console.log("playground for button component initialized");
+      icon_position: Object.values(getOptions('size')),
+      position: Object.values(getOptions('position.button')),
+      type: Object.values(getOptions('type.button')),
+      variant: Object.values(variant)
+    })
+    console.log('playground for button component initialized')
   }
-});
+})
 </script>
 <style lang="css">
 .material-icons {

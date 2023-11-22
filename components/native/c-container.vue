@@ -1,26 +1,34 @@
 <template lang="">
-    
-    <div class="row g-0">
-      <div class="col-md-4">
-        <slot>
-
-        </slot>
-        <!--img position left or right only -->
-      </div>
-      <div class="col-md-8">
-        <div class="card-img-overlay">
-            <slot>
-
-            </slot>
-        </div>
-      </div>
-    </div>
+  <div :class="sizing">
+    <slot />
+  </div>
 </template>
-<script>
-export default {
-    
+<script setup lang="ts">
+import { computed } from 'vue'
+import { size } from '../../utils/bootstrap'
+
+export interface Props {
+  fluid?: boolean
+  size?: string
+
+  playground?: boolean
 }
+
+const props = withDefaults(defineProps<Props>(), {
+  fluid: false,
+  size: '',
+
+  playground: false
+})
+
+const sizing = computed(() => {
+  if (props.fluid) {
+    return 'container-fluid'
+  }
+  if (props.size) {
+    return size('container', props.size)
+  }
+  return 'container'
+})
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>
