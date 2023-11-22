@@ -159,12 +159,3 @@ export const img = (imgProp: any) => {
     src: src
   }
 }
-
-// export const size = getOptions("size");
-// export const direction = getOptions("direction");
-// export const variant = getOptions("variant");
-// export const position_button = getOptions("position.button");
-// export const type_button = getOptions("type.button");
-// export const type_input = getOptions("type.input");
-// export const position_img = getOptions("position.img");
-// export const align_card = getOptions("align.card");

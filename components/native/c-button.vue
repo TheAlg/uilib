@@ -100,7 +100,7 @@ onBeforeMount(() => {
       icon_position: Object.values(getOptions('size')),
       position: Object.values(getOptions('position.button')),
       type: Object.values(getOptions('type.button')),
-      variant: Object.values(variant)
+      variant: Object.values(getOptions('variant'))
     })
     console.log('playground for button component initialized')
   }
