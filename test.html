@@ -12,13 +12,20 @@
   </head>
 
   <body>
-    <div id="button"></div>
+    <div id="app" class="container">
+      <sidenav type="hidden" position="start" title="menu"> gttt </sidenav>
+    </div>
 
     <script type="module">
-      import { nButton } from './main.ts'
-      import { createApp } from 'vue'
+      import { nButton, offcanvas } from './main.ts'
+      import { createApp } from 'vue/dist/vue.esm-bundler'
 
-      createApp(nButton, { label: 'test', variant: 'primary', outline: false }).mount('#button')
+      const app = createApp({})
+
+      app.component('btn', nButton)
+      app.component('sidenav', offcanvas)
+
+      app.mount('#app')
     </script>
   </body>
 </html>

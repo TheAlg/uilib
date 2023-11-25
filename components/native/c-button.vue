@@ -4,6 +4,11 @@
       :class="['btn', computedSize, computedVariant, innerClass, { disabled: disabled }]"
       :type="computedType"
       :style="iconObj?.padding"
+      :data-bs-toggle="dataBsToggle"
+      :data-bs-target="dataBsToggle"
+      :aria-controls="ariaControls"
+      :data-bs-dismiss="dataBsDismiss"
+      :aria-label="ariaLabel"
       :value="value"
       @click="$emit('click', value)"
     >
@@ -48,6 +53,11 @@ export interface Props {
   disabled?: boolean
   innerClass?: string
   icon?: Object | string
+  dataBsToggle?: string | null
+  dataBsTarget?: string | null
+  ariaControls?: string | null
+  dataBsDismiss?: string | null
+  ariaLabel?: string | null
 
   playground?: boolean
 }
@@ -63,6 +73,10 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   innerClass: undefined,
   icon: undefined,
+  dataBsToggle: null,
+  dataBsTarget: null,
+  ariaControls: null,
+
   playground: false
 })
 

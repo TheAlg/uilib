@@ -12,9 +12,9 @@ export default {
     position: {
       required: false,
       type: String,
-      default: "",
-    },
-  },
-};
+      default: ''
+    }
+  }
+}
 </script>
 <style lang=""></style>
