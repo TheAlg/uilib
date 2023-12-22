@@ -5,7 +5,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
-import { size } from '../../utils/bootstrap'
+import { size } from 'utils/bootstrap'
 
 export interface Props {
   fluid?: boolean

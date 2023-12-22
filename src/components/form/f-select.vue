@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { getOptions } from '../../utils/bootstrap'
+import { getOptions } from 'utils/bootstrap'
 
 export interface Props {
   options: Array<{ key: string; value: string }>

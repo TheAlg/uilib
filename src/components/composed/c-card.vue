@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { computed, onBeforeMount } from 'vue'
 import wrapper from 'wrappers/c-card.vue'
-import { boot, getOptions, img, variant } from '../../utils/bootstrap'
+import { boot, getOptions, img, variant } from 'utils/bootstrap'
 
 export interface Props {
   img?: Object | string

@@ -37,8 +37,8 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref } from 'vue'
 import wrapper from 'wrappers/f-input.vue'
-import { generateId } from '../../utils/functions'
-import { boot, getOptions, size } from '../../utils/bootstrap'
+import { generateId } from 'utils/functions'
+import { boot, getOptions, size } from 'utils/bootstrap'
 
 export interface Props {
   label?: string | undefined

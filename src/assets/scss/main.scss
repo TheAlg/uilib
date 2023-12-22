@@ -1,0 +1,10 @@
+// Import Bootstrap SCSS files
+@import 'bootstrap/scss/functions.scss';
+@import 'bootstrap/scss/variables.scss';
+@import 'bootstrap/scss/mixins.scss';
+@import 'bootstrap/scss/bootstrap.scss';
+
+//include my themes
+@import './themes/default/main.scss';
+
+//@import url('https://fonts.googleapis.com/icon?family=Material+Icons');

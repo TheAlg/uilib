@@ -5,10 +5,12 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  assetsInclude: ['**/*.css', '**/*.scss', '**/*.png', '**/*.jpg', '**/*.svg'],
   build: {
+    assetsDir: './src/assets/',
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, './main.ts'),
+      entry: resolve(__dirname, './src'),
       name: 'uilib',
       // the proper extensions will be added
       fileName: 'uilib'
@@ -18,6 +20,7 @@ export default defineConfig({
       // into your library
       external: ['vue'],
       output: {
+        assetFileNames: 'uilib.css',
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
@@ -29,8 +32,10 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      wrappers: fileURLToPath(new URL('./wrappers', import.meta.url)),
-      components: fileURLToPath(new URL('./components', import.meta.url))
+      wrappers: fileURLToPath(new URL('./src/wrappers', import.meta.url)),
+      components: fileURLToPath(new URL('./src/components', import.meta.url)),
+      assets: fileURLToPath(new URL('./src/assets', import.meta.url)),
+      utils: fileURLToPath(new URL('./src/utils', import.meta.url))
     },
     dedupe: ['vue']
   },
@@ -43,7 +48,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-        @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+        @import "./src/assets/scss/main.scss";
         `
       }
     }

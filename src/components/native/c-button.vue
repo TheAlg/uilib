@@ -39,8 +39,8 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref } from 'vue'
 import wrapper from 'wrappers/c-button.vue'
-import { generateId } from '../../utils/functions'
-import { size, variant, icon, boot, getOptions } from '../../utils/bootstrap'
+import { generateId } from 'utils/functions'
+import { size, variant, icon, boot, getOptions } from 'utils/bootstrap'
 export interface Props {
   label?: string
   position?: string
@@ -120,7 +120,8 @@ onBeforeMount(() => {
   }
 })
 </script>
-<style lang="css">
+<style lang="scss">
+@use 'assets/scss/main.scss';
 .material-icons {
   line-height: unset;
 }

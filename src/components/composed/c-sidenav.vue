@@ -1,11 +1,12 @@
 <template>
   <n-button
-    v-if="!anchor"
+    v-if="withToggleButton"
     class="navbar-toggler d-flex d-lg-none order-3 p-2 border-0"
     :data-bs-toggle="offcanvas"
     :data-bs-target="'#' + Uuid"
     :aria-controls="Uuid"
-    :icon="toggleIcon"
+    :label="toggleButton.label"
+    :icon="toggleButton.icon"
   />
   <wrapper :wrapp="anchor">
     <template #side>
@@ -47,27 +48,27 @@
 <script setup lang="ts">
 import nButton from 'components/native/c-button.vue'
 import wrapper from 'wrappers/c-sidenav.vue'
-import { generateId } from '../../utils/functions'
+import { generateId } from 'utils/functions'
 import { computed, onMounted, ref } from 'vue'
-import { boot } from '../../utils/bootstrap'
-
 export interface Props {
   title?: string
   withCloseButton?: boolean
+  withToggleButton?: boolean | string | { label: ''; icon: '' }
   visible?: boolean
   position?: string
   scroll?: boolean
   type?: string
   setId?: Function | undefined
   toggleIcon?: string | any
-  main?: boolean
   id?: string
 
   playground?: boolean
 }
+
 const props = withDefaults(defineProps<Props>(), {
   title: '',
   withCloseButton: false,
+  withToggleButton: false,
   visible: true,
   //start, end, bottom, top
   position: 'start',
@@ -75,7 +76,6 @@ const props = withDefaults(defineProps<Props>(), {
   //fixed, collapse, over, push
   type: 'hidden',
   toggleIcon: undefined,
-  main: false,
   id: ''
 })
 
@@ -99,7 +99,13 @@ const offcanvas = computed(() => {
 const mainClass = computed(() => {
   return boot('type.sidenav.' + props.type)
 })
-
+const toggleButton = computed(() => {
+  if (typeof props.withToggleButton === 'string') {
+    return { label: props.withToggleButton }
+  } else if (typeof props.withToggleButton === 'object') {
+    return { label: props.withToggleButton.label, icon: props.withToggleButton.icon }
+  } else return { label: '', icon: 'menu' }
+})
 const positionClass = computed(() => {
   return offcanvas ? 'offcanvas-' + props.position : ''
 })

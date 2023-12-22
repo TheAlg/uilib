@@ -14,10 +14,12 @@
   <body>
     <div id="app" class="container">
       <sidenav type="hidden" position="start" title="menu"> gttt </sidenav>
+      <btn label="thing"></btn>
     </div>
 
     <script type="module">
-      import { nButton, offcanvas } from './main.ts'
+      import main from './main.ts'
+      const { nButton, offcanvas } = main
       import { createApp } from 'vue/dist/vue.esm-bundler'
 
       const app = createApp({})

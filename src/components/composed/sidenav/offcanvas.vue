@@ -1,16 +1,19 @@
 <template>
   <n-button
-    v-if="hidden"
+    v-if="withToggleButton"
     data-bs-toggle="offcanvas"
     :data-bs-target="'#' + Uuid"
     :aria-controls="Uuid"
-    :icon="'check'"
+    :label="toggleButton.label"
+    :icon="toggleButton.icon"
   />
 
   <div
     :class="['offcanvas', class_position, { show: visible }]"
     tabindex="-1"
     :id="Uuid"
+    :data-bs-scroll="scroll"
+    :data-bs-backdrop="backDrop"
     aria-labelledby="offcanvasLabel"
   >
     <div v-if="header" class="offcanvas-header">
@@ -32,18 +35,16 @@
 <script setup lang="ts">
 import nButton from 'components/native/c-button.vue'
 import { computed, onMounted, ref } from 'vue'
-import { generateId } from '../../../utils/functions'
+import { generateId } from 'utils/functions'
 
 export interface Props {
   title?: string
   withCloseButton?: boolean
+  withToggleButton?: boolean | string | { label: ''; icon: '' }
   visible?: boolean
   position?: string
-  scroll?: boolean
-  type?: string
-  setId?: Function | undefined
-  toggleIcon?: string | any
-  main?: boolean
+  scroll?: true | false | 'static'
+  backDrop?: boolean
   id?: string
 
   playground?: boolean
@@ -51,14 +52,12 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   title: '',
   withCloseButton: false,
+  withToggleButton: false,
   visible: false,
   //start, end, bottom, top
   position: 'start',
   scroll: false,
-  //fixed, collapse, over, push
-  type: 'anchor',
-  toggleIcon: undefined,
-  main: false,
+  backDrop: false,
   id: ''
 })
 const Uuid = ref<string | undefined>(undefined)
@@ -81,5 +80,12 @@ const header = computed(() => {
 })
 const class_position = computed(() => {
   return 'offcanvas-' + props.position
+})
+const toggleButton = computed(() => {
+  if (typeof props.withToggleButton === 'string') {
+    return { label: props.withToggleButton }
+  } else if (typeof props.withToggleButton === 'object') {
+    return { label: props.withToggleButton.label, icon: props.withToggleButton.icon }
+  } else return { label: '', icon: 'menu' }
 })
 </script>
