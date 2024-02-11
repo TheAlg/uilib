@@ -121,7 +121,7 @@ onBeforeMount(() => {
 })
 </script>
 <style lang="scss">
-@use 'assets/scss/main.scss';
+
 .material-icons {
   line-height: unset;
 }

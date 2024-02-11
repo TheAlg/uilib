@@ -49,6 +49,8 @@
 import nButton from 'components/native/c-button.vue'
 import wrapper from 'wrappers/c-sidenav.vue'
 import { generateId } from 'utils/functions'
+import { boot } from 'utils/bootstrap'
+
 import { computed, onMounted, ref } from 'vue'
 export interface Props {
   title?: string
@@ -85,6 +87,7 @@ onMounted(() => {
   Uuid.value = generateId()
   if (props.setId) {
     props.setId(Uuid.value)
+    console.log(Uuid.value)
   }
 })
 const anchor = computed(() => {
@@ -99,6 +102,7 @@ const offcanvas = computed(() => {
 const mainClass = computed(() => {
   return boot('type.sidenav.' + props.type)
 })
+
 const toggleButton = computed(() => {
   if (typeof props.withToggleButton === 'string') {
     return { label: props.withToggleButton }

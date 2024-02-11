@@ -3,7 +3,7 @@
   <header class="navbar navbar-expand-lg bd-navbar sticky-top">
     <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
       <div v-if="menu_id" class="bd-navbar-toggle">
-        <n-button
+        <Button
           class="navbar-toggler p-2 border-0"
           type="button"
           data-bs-toggle="offcanvas"
@@ -16,7 +16,7 @@
 
       <a class="navbar-brand p-0 me-0 me-lg-2" href="/" aria-label="logoName"> myLogo </a>
 
-      <sidenav :setId="setId" variant="over" position="end" toggleIcon="more_horiz" title="title">
+      <Sidenav :setId="setId" variant="over" position="end" toggleIcon="more_horiz" title="title">
         <hr class="d-lg-none text-white-50" />
         <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
           <li class="nav-item col-6 col-lg-auto">
@@ -31,18 +31,18 @@
 
         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
           <li class="nav-item">
-            <dropdown label="Theme" :default="theme" :items="themes" @clicked="changeTheme" />
+            <Dropdown label="Theme" :default="theme" :items="themes" @clicked="changeTheme" />
           </li>
         </ul>
-      </sidenav>
+      </Sidenav>
     </nav>
   </header>
 </template>
 
 <script setup lang="ts">
-import nButton from 'components/native/c-button.vue'
-import sidenav from 'components/composed/c-sidenav.vue'
-import dropdown from 'components/native/c-dropdown.vue'
+import Button from 'components/native/c-button.vue'
+import Sidenav from 'components/composed/c-sidenav.vue'
+import Dropdown from 'components/native/c-dropdown.vue'
 import { ref } from 'vue'
 
 const menu_id = ref<string | null>(null)
